@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { fadeUp } from "@/lib/animations";
 import FloatingParticles from "@/components/effects/FloatingParticles";
 
 export default function Hero() {
@@ -20,7 +19,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" />
 
             <div className="absolute inset-0 bg-gradient-to-b from-[#1b1720]/30 via-[#15131a]/20 to-[#0f0f10]/60" />
-            
+
             <div className="absolute bottom-0 left-0 h-[40vh] w-full bg-gradient-to-t from-[#f0d7c1]/10 to-transparent blur-3xl" />
             <FloatingParticles />
             {/* <div className="absolute left-6 top-6 z-20">
@@ -29,7 +28,18 @@ export default function Hero() {
                 </p>
             </div> */}
             <motion.div
-                {...fadeUp}
+                initial={{
+                    opacity: 0,
+                    y: 40,
+                }}
+                animate={{
+                    opacity: 1,
+                    y: 0,
+                }}
+                transition={{
+                    duration: 1,
+                    ease: "easeOut",
+                }}
                 className="relative z-10 max-w-3xl"
                 whileHover={{ rotateX: 2, rotateY: 2, }}
             >
