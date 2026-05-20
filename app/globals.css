@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0f0f10;
+  --foreground: #f7f3ee;
+
+  --warm-white: #f7f3ee;
+  --soft-black: #111111;
+  --champagne: #d6c2a1;
+  --lavender-gray: #8d8aa8;
+  --muted-beige: #d9d0c7;
+  --blush: #c7a6a1;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at top,
+      #2a2730 0%,
+      #17151a 45%,
+      #0f0f10 100%);
   color: var(--foreground);
+  overflow-x: hidden;
   font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter);
+}
+
+/* Smooth Selection */
+::selection {
+  background: rgba(214, 194, 161, 0.25);
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Cinematic Glow */
+.glow {
+  box-shadow:
+    0 0 80px rgba(214,194,161,0.15);
+}
+
+/* Noise Overlay */
+.noise::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image:
+    url("https://grainy-gradients.vercel.app/noise.svg");
+}
+
+h1, h2, h3 {
+  font-family: var(--font-cormorant);
+}
+
+.hero-glow {
+  text-shadow:
+    0 0 30px rgba(214,194,161,0.15);
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
