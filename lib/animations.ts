@@ -1,4 +1,4 @@
-const fadeUp = {
+export const fadeUp = {
     initial: {
         opacity: 0,
         y: 40,
